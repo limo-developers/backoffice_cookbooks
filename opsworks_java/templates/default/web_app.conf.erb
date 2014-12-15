@@ -146,5 +146,6 @@
   ProxyPassReverse / http://localhost:<%= node['opsworks_java']['tomcat']['port'] %>/<%= @params[:target_context] %>
   <% end -%>
 <% end -%>
+
 </VirtualHost>
 <% end -%>
