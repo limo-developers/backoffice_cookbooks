@@ -132,8 +132,10 @@
   ProxyPass <%= node['opsworks_java']['tomcat']['apache_tomcat_bind_path'] %> ajp://localhost:<%= node['opsworks_java']['tomcat']['ajp_port'] %>/<%= @params[:target_context] %>
   ProxyPassReverse <%= node['opsworks_java']['tomcat']['apache_tomcat_bind_path'] %> ajp://localhost:<%= node['opsworks_java']['tomcat']['ajp_port'] %>/<%= @params[:target_context] %>
   <% else %>
-  ProxyPass <%= node['opsworks_java']['tomcat']['apache_tomcat_bind_path'] %> http://localhost:<%= node['opsworks_java']['tomcat']['port'] %>/<%= @params[:target_context] %>
-  ProxyPassReverse <%= node['opsworks_java']['tomcat']['apache_tomcat_bind_path'] %> http://localhost:<%= node['opsworks_java']['tomcat']['port'] %>/<%= @params[:target_context] %>
+  <!-- ProxyPass <%= node['opsworks_java']['tomcat']['apache_tomcat_bind_path'] %> http://localhost:<%= node['opsworks_java']['tomcat']['port'] %>/<%= @params[:target_context] %> -->
+  <!-- ProxyPassReverse <%= node['opsworks_java']['tomcat']['apache_tomcat_bind_path'] %> http://localhost:<%= node['opsworks_java']['tomcat']['port'] %>/<%= @params[:target_context] %> -->
+  ProxyPass / http://localhost:<%= node['opsworks_java']['tomcat']['port'] %>/<%= @params[:target_context] %>
+  ProxyPassReverse / http://localhost:<%= node['opsworks_java']['tomcat']['port'] %>/<%= @params[:target_context] %>
   <% end -%>
 <% else -%>
   <% if node['opsworks_java']['tomcat']['apache_tomcat_bind_mod'] == 'proxy_ajp' -%>
