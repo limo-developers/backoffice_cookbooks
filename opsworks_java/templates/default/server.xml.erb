@@ -152,7 +152,7 @@
       <!-- Context -->
       <Host name="localhost"
         unpackWARs="true" autoDeploy="true" appBase="/var/lib/tomcat7/webapps">
-        <Context path="" docBase="/var/lib/tomcat7/webapps/limo_backoffice_staging/" reloadable="true" />
+        <Context path="" docBase="/var/lib/tomcat7/webapps/#{node['custom_env']['limotaxi']['APP_NAME']}/" reloadable="true" />
 
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
                prefix="localhost_access_log." suffix=".txt"
